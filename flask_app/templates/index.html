@@ -17,19 +17,22 @@
                 <p class="text-center">
                     Survey to get which is the most preferred programming language
                 </p>
+                {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %} {% endif %} {% endwith %}
                 <form class="row g-2 col-md-6 col-lg-6 justify-content-center bg-dark text-light py-4 px-3 rounded" action="/save" method="post">
                     <label for="name" class="form-label">Your name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required />
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your name" />
                     <label for="location" class="form-label">Dojo Location</label>
                     <select class="form-select" name="location" id="location" aria-label="Default select example">
-              <option selected>-- Select Location --</option>
+              <option selected value="0">-- Select Location --</option>
               <option value="Lima">Lima</option>
               <option value="San Francisco">San Francisco</option>
               <option value="Santiago">Santiago</option>
             </select>
                     <label for="language" class="form-label">Favorite Language</label>
                     <select class="form-select" name="language" id="language" aria-label="Default select example">
-              <option selected>-- Select Language --</option>
+              <option selected value="0">-- Select Language --</option>
               <option value="Python">Python</option>
               <option value="Javascript">Javascript</option>
               <option value="Java">Java</option>
